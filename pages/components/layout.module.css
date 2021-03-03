@@ -1,7 +1,8 @@
 .container {
     max-width: 100VW;
+    min-height: 100vh;
     padding: 0 1rem;
-    margin: auto 2rem;
+    margin: auto 5rem;
     background-color: firebrick;
     display: flex;
     flex-direction: column;
@@ -12,4 +13,7 @@
     color: white;
     font-weight: bolder;
     text-align: center;
+  }
+  .link {
+    color: white;
   }

@@ -16,13 +16,20 @@ export default function Home() {
           <p className="subtitle">Wow!</p>
           <Image
             src="/images/dogetitle.jpg" 
-            height={144} // Desired size with correct aspect ratio
-            width={204} // Desired size with correct aspect ratio
+            height={544} // Desired size with correct aspect ratio
+            width={804} // Desired size with correct aspect ratio
           ></Image>
+          <div className="row">
           <Link href="/posts">
             <a className="subtitle">See posts</a>
           </Link>
-       
+          <Link href="/about">
+            <a className="subtitle">About us</a>
+          </Link>
+          <Link href="/donate">
+            <a className="subtitle">Donate</a>
+          </Link>
+       </div>
 
         <footer className="footer">Powered by pure meme energy</footer>
 
@@ -41,7 +48,7 @@ export default function Home() {
   color: white;
   font-weight: bolder;
   font-size: 2rem;
-  
+  padding: 1rem;
 }
           
 .footer {
