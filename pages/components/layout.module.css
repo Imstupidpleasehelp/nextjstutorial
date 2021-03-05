@@ -3,7 +3,7 @@
     min-height: 100vh;
     padding: 0 1rem;
     margin: auto 5rem;
-    background-color: firebrick;
+    background-image: url('../../public/images/background.jpg');
     display: flex;
     flex-direction: column;
     justify-content: center;

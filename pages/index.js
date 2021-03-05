@@ -21,14 +21,14 @@ export default function Home({allPostsData}) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        
+         <Image
+            src="/images/dogetitle.jpg" 
+            height={444} // Desired size with correct aspect ratio
+            width={704} // Desired size with correct aspect ratio
+          ></Image>
           <h1 className="title">DogeBlog</h1>
           <p className="subtitle">Wow!</p>
-          <Image
-            src="/images/dogetitle.jpg" 
-            height={544} // Desired size with correct aspect ratio
-            width={804} // Desired size with correct aspect ratio
-          ></Image>
+         
           <div className="row">
           <Link href="/posts">
             <a className="subtitle">See posts</a>
