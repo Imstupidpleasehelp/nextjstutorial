@@ -1,14 +1,20 @@
 .container {
     max-width: 100VW;
     min-height: 100vh;
-    padding: 0 1rem;
+   
     margin: auto 5rem;
-    background-image: url('../../public/images/background.jpg');
+  perspective: 1px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    transform-style: preserve-3d;
+   background-color: black;
+    color: white;
   }
+ 
+ 
   .center {
     color: white;
     font-weight: bolder;
@@ -16,4 +22,16 @@
   }
   .link {
     color: white;
+  }
+  .background {
+    /* background-image: url('../../public/images/background.jpg'); */
+    display: flex;
+ background-color: black;
+  position: relative;
+  z-index:-1;
+  height: 105vh;
+  
+  transform: translateZ(-1px) scale(2);
+
+background-size: 100%;
   }

@@ -16,11 +16,12 @@ export default function Home({allPostsData}) {
   return (
     <Layout>
       <div className="container">
+        
         <Head>
           <title>DogeBlog, all about Doge</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-
+        <div className="background">
          <Image
             src="/images/dogetitle.jpg" 
             height={444} // Desired size with correct aspect ratio
@@ -39,7 +40,7 @@ export default function Home({allPostsData}) {
           <Link href="/donate">
             <a className="subtitle">Donate</a>
           </Link>
-       </div>
+       </div></div>
  {/* Add this <section> tag below the existing <section> tag */}
  <section className={'blogMain'}>
         <h2 className='blogtitle'>Blog</h2>
@@ -74,7 +75,8 @@ export default function Home({allPostsData}) {
   font-size: 2rem;
   padding: 1rem;
 }
-          
+
+background-size: 100%;          
 .footer {
   text-align:center;
   font-size:1rem;
