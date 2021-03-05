@@ -47,11 +47,11 @@ export default function Home({allPostsData}) {
         <ul className='list'>
           {allPostsData.map(({ id, date, title }) => (
             <li className='listItem' key={id}>
-              {title}
+              <h4 className="articleTitle">{title}</h4>
               <br />
-              {id}
-              <br />
-              {date}
+              <p>{id}  
+              
+              {date}</p>
             </li>
           ))}
         </ul>
@@ -83,6 +83,18 @@ background-size: 100%;
   font-weight: bolder;
   bottom: 0;
   position: fixed;
+}
+.blogMain {
+  text-align: left;
+}
+.list {
+  padding: .5rem;
+}
+.listitem {
+  padding: 1rem;
+}
+.articleTitle {
+  text-align: center;
 }
           @media (max-width: 600px) {
             .grid {
