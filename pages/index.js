@@ -12,7 +12,7 @@ export async function getStaticProps() {
     }
   }
 }
-export default function Home() {
+export default function Home({allPostsData}) {
   return (
     <Layout>
       <div className="container">
@@ -40,7 +40,21 @@ export default function Home() {
             <a className="subtitle">Donate</a>
           </Link>
        </div>
-
+ {/* Add this <section> tag below the existing <section> tag */}
+ <section className={'blogMain'}>
+        <h2 className='blogtitle'>Blog</h2>
+        <ul className='list'>
+          {allPostsData.map(({ id, date, title }) => (
+            <li className='listItem' key={id}>
+              {title}
+              <br />
+              {id}
+              <br />
+              {date}
+            </li>
+          ))}
+        </ul>
+      </section>
         <footer className="footer">Powered by pure meme energy</footer>
 
         <style jsx>{`
