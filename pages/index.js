@@ -1,8 +1,42 @@
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
-import Layout from "./components/layout";
+import Head from 'next/head'
+import Layout, { siteTitle } from '../components/layout'
+import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
+import Link from 'next/link'
+import Date from '../components/date'
+
+export default function Home({ allPostsData }) {
+  return (
+    <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
+      <section className={utilStyles.headingMd}>
+        <p>[Your Self Introduction]</p>
+        <p>
+          (This is a sample website - you’ll be building a site like this in{' '}
+          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+        </p>
+      </section>
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <ul className={utilStyles.list}>
+          {allPostsData.map(({ id, date, title }) => (
+            <li className={utilStyles.listItem} key={id}>
+              <Link href={`/posts/${id}`}>
+                <a>{title}</a>
+              </Link>
+              <br />
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </Layout>
+  )
+}
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
@@ -11,115 +45,4 @@ export async function getStaticProps() {
       allPostsData
     }
   }
-}
-export default function Home({allPostsData}) {
-  return (
-    <Layout>
-      <div className="container">
-        
-        <Head>
-          <title>DogeBlog, all about Doge</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <div className="background">
-         <Image
-            src="/images/dogetitle.jpg" 
-            height={444} // Desired size with correct aspect ratio
-            width={704} // Desired size with correct aspect ratio
-          ></Image>
-          <h1 className="title">DogeBlog</h1>
-          <p className="subtitle">Wow!</p>
-         
-          <div className="row">
-          <Link href="/posts">
-            <a className="subtitle">See posts</a>
-          </Link>
-          <Link href="/about">
-            <a className="subtitle">About us</a>
-          </Link>
-          <Link href="/donate">
-            <a className="subtitle">Donate</a>
-          </Link>
-       </div></div>
- {/* Add this <section> tag below the existing <section> tag */}
- <section className={'blogMain'}>
-        <h2 className='blogtitle'>Blog</h2>
-        <ul className='list'>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className='listItem' key={id}>
-              <h4 className="articleTitle">{title}</h4>
-              <br />
-              <p>{id}  
-              
-              {date}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-        <footer className="footer">Powered by pure meme energy</footer>
-
-        <style jsx>{`
-        .container {
-          min-height: 100vh;
-          display: flex;
-            flex-direction: column;
-           
-            align-items: center;
-        }
-          .title {
-            color: white;
-          }
-.subtitle {
-  color: white;
-  font-weight: bolder;
-  font-size: 2rem;
-  padding: 1rem;
-}
-
-background-size: 100%;          
-.footer {
-  text-align:center;
-  font-size:1rem;
-  font-weight: bolder;
-  bottom: 0;
-  position: fixed;
-}
-.blogMain {
-  text-align: left;
-}
-.list {
-  padding: .5rem;
-}
-.listitem {
-  padding: 1rem;
-}
-.articleTitle {
-  text-align: center;
-}
-          @media (max-width: 600px) {
-            .grid {
-              width: 100%;
-              flex-direction: column;
-            }
-          }
-        `}</style>
-
-        <style jsx global>{`
-          html,
-          body {
-            padding: 0;
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-              Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-              sans-serif;
-              
-          }
-
-          * {
-            box-sizing: border-box;
-          }
-        `}</style>
-      </div>
-    </Layout>
-  );
 }
