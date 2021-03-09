@@ -17,6 +17,7 @@ export default function Home({ allPostsData }) {
          DOGE
         </p>
       </section>
+      <Link href="/backend">Api stuff</Link>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
