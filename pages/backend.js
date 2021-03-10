@@ -1,20 +1,21 @@
-import Layout from '../components/layout'
+import Layout from "../components/layout";
 export default function Backend() {
-    return(
-        <Layout>See? <button onClick={() => createUser()}>Wee</button></Layout>
-    )
+  return (
+    <Layout>
+      See?
+      <form action="POST">
+        <input placeholder="send to database"></input>
+        <button onClick={() => requestData}>Sond</button>
+      </form>
+    </Layout>
+  );
 }
 
-export async function getAllUsers() {
-
-    const response = await fetch('/api/users');
-    return await response.json();
-}
-export async function createUser(data) {
-    const response = await fetch(`/api/server`, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({user: data})
-      })
-    return await response.json();
+export async function requestData(data) {
+  const response = await fetch(`/api/hello`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ user: data }),
+  });
+  console.log(response.json());
 }
