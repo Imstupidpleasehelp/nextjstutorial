@@ -3,7 +3,7 @@ export default function Backend() {
   return (
     <Layout>
       See?
-      <form action="POST">
+      <form action="api/hello">
         <input placeholder="send to database"></input>
         <button onClick={() => requestData}>Sond</button>
       </form>
